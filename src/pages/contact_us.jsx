@@ -6,8 +6,10 @@ import React from 'react';
 import heroVideo from '../assets/office1.mp4';
 // import teamImage from '../assets/project2.jpg';
 // import coFounderImage from '../assets/co-founder-portrait.jpg';
-
+import { useNavigate } from "react-router-dom";
 const ContactUs = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="font-sans text-gray-800 bg-gray-50 overflow-hidden my-10" > {/* Added a subtle background color for the whole page */}
 
@@ -37,7 +39,7 @@ const ContactUs = () => {
             <p className="flex items-center justify-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg> <strong>Email:</strong> info@ceilorainterior.com</p>
             <p className="flex items-center justify-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg> <strong>Hours:</strong> Mon-Fri, 9 AM - 5 PM (IST)</p>
           </div>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"> {/* Pill shape, larger, more prominent hover */}
+          <button onClick={() => navigate("/send-message")} className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg"> {/* Pill shape, larger, more prominent hover */}
             Send a Message
           </button>
         </div>

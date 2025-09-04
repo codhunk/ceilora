@@ -10,6 +10,7 @@ import ContactUsPage from './pages/contact_us.jsx';
 import ProjectDetailPage from './pages/project_details.jsx'; // For individual projects
 import PortfolioPage from './pages/portfolio.jsx';
 import {AnimatePresence } from 'framer-motion';
+import SendMsg from './pages/message.jsx';
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
             <Route path="/contact-us" element={<ContactUsPage />} />
              <Route path="/portfolio/:id" element={<ProjectDetailPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/send-message" element={<SendMsg />} />
           </Routes>
           </AnimatePresence>
         </main>

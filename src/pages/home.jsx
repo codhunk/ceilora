@@ -69,7 +69,7 @@ const HomePage = () => {
       </section>
 
       {/* Our Philosophy Section */}
-      <section className="py-20 bg-gray-50 border-2 border-black my-1  rounded-lg mx-auto flex flex-col items-center">
+      <section className="py-20 bg-gray-50  my-1  rounded-lg mx-auto flex flex-col items-center">
         {/* <hr className="my-8 border-gray-300" /> */}
         <div className="container mx-auto px-6 text-center">
           <motion.h2
