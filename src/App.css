@@ -36,3 +36,50 @@
     transform: rotate(360deg);
   }
 }
+/* src/App.css or src/index.css */
+
+/* Define the keyframes for the gradient border animation */
+@keyframes gradientBorderAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Apply the custom styles for the animated gradient border */
+.animated-gradient-border {
+    position: relative;
+    /* Ensure content is above the pseudo-element border */
+    z-index: 1;
+    /* Make sure the card itself has a background, otherwise the gradient will show through */
+    background-color: white; /* Or whatever background you want for the card */
+    overflow: hidden; /* Crucial to contain the pseudo-element and round its corners */
+}
+
+/* Pseudo-element for the animated gradient border */
+.animated-gradient-border::before {
+    content: '';
+    position: absolute;
+    top: -2px; /* Adjust to control the border thickness */
+    right: -2px; /* Adjust to control the border thickness */
+    bottom: -2px; /* Adjust to control the border thickness */
+    left: -2px; /* Adjust to control the border thickness */
+    z-index: -1; /* Place it behind the actual card content */
+    border-radius: inherit; /* Inherit border-radius from the parent */
+    
+    /* Define the gradient colors */
+    background-image: linear-gradient(
+        45deg,
+        #4f46e5, /* Tailwind indigo-600 */
+        #d8b4fe, /* Tailwind purple-300 or similar light purple */
+        #4f46e5  /* Tailwind indigo-600 */
+    );
+    
+    background-size: 200% 200%; /* Make the gradient larger for the animation */
+    animation: gradientBorderAnimation 4s ease-in-out infinite alternate; /* Apply the animation */
+}

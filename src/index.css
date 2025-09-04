@@ -1,13 +1,52 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Optional: Import custom fonts here if you're not using Google Fonts directly in index.html
+  Or if you are importing them from a web service that recommends CSS import.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+
+/*
+  You can add your own custom CSS here if absolutely necessary,
+  but try to stick to Tailwind classes as much as possible for consistency.
+*/
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Set a global default font if you didn't do it in tailwind.config.js */
+  /* font-family: 'Inter', sans-serif; */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3, h4, h5, h6 {
+  /* Set headings font if you didn't do it in tailwind.config.js */
+  /* font-family: 'Playfair Display', serif; */
+}
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Optional: Import custom fonts here if you're not using Google Fonts directly in index.html
+  Or if you are importing them from a web service that recommends CSS import.
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap');
+
+
+/*
+  You can add your own custom CSS here if absolutely necessary,
+  but try to stick to Tailwind classes as much as possible for consistency.
+*/
+body {
+  /* Set a global default font if you didn't do it in tailwind.config.js */
+  /* font-family: 'Inter', sans-serif; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  /* Set headings font if you didn't do it in tailwind.config.js */
+  /* font-family: 'Playfair Display', serif; */
 }

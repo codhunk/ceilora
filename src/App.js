@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
-
+// src/App.js
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/navbar/navbar';
+import Footer from './components/footer/footer.jsx';
+import HomePage from './pages/home.jsx';
+import AboutUsPage from './pages/about_us.jsx';
+import ServicesPage from './pages/services.jsx';
+import ClientGalleryPage from './pages/client_gallery.jsx';
+import ContactUsPage from './pages/contact_us.jsx';
+import ProjectDetailPage from './pages/project_details.jsx'; // For individual projects
+import PortfolioPage from './pages/portfolio.jsx';
+import {AnimatePresence } from 'framer-motion';
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="flex flex-col min-h-screen font-sans">
+        <Navbar />
+           {/* <h1>
+              Welcome to Ceilora - Your Design Partner
+            </h1> */}
+        <main className="flex-grow">
+           <AnimatePresence mode="wait">
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about-us" element={<AboutUsPage />} />
+                <Route path="/services" element={<ServicesPage />} />
+                <Route path="/client-gallery" element={<ClientGalleryPage />} />
+            <Route path="/client-gallery/:projectId" element={<ProjectDetailPage />} />
+            <Route path="/contact-us" element={<ContactUsPage />} />
+             <Route path="/portfolio/:id" element={<ProjectDetailPage />} />
+            <Route path="/portfolio" element={<PortfolioPage />} />
+          </Routes>
+          </AnimatePresence>
+        </main>
+        <Footer />
+      </div>
+     </Router>
   );
 }
 
