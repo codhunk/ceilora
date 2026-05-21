@@ -2169,6 +2169,11 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 1rem;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:pl-8 {
     padding-left: 2rem;
   }

@@ -159,7 +159,7 @@ const HomePage = () => {
           >
             Bespoke spatial design, photorealistic blueprints, and hand-crafted execution.
           </motion.p>
-          <motion.div variants={itemVariants} className="flex items-center justify-center gap-4">
+          <motion.div variants={itemVariants} className="flex flex-col md:flex-row items-center justify-center gap-8 w-full px-4 md:px-0">
             <CallToAction text="Explore Our Gallery" link="/client-gallery" />
             <Link
               href="/contact-us"
@@ -465,7 +465,7 @@ const HomePage = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex items-center justify-center gap-4 flex-wrap"
+            className="flex flex-col md:flex-row items-center justify-center gap-8 flex-wrap w-full px-4 md:px-0"
           >
             <CallToAction text="Schedule Consultation" link="/contact-us" primary={false} />
             <Link
