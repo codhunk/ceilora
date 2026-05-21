@@ -1,23 +1,16 @@
 // tailwind.config.js (updated theme section)
 module.exports = {
   content: [
-    "./src/pages/home.jsx",
-    "./src/pages/about_us.jsx",
-    "./src/pages/services.jsx",
-    "./src/pages/client_gallery.jsx",
-    "./src/pages/contact_us.jsx",
-    "./src/pages/project_details.jsx",
-    "./src/components/navbar/navbar.jsx",
-    "./src/components/footer/footer.jsx",
-    "./src/index.js",
-    "./src/App.js",
-  
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
         // 'sans' will be your default sans-serif font
-        'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+        'sans': ['var(--font-poppins)', 'Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+        // Explicit Poppins class: font-poppins
+        'poppins': ['var(--font-poppins)', 'sans-serif'],
         // 'serif' for headings
         'serif': ['"Playfair Display"', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       },

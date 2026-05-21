@@ -1,10 +1,19 @@
-// src/components/Footer.js
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  const getFooterLinkClass = (path) => {
+    // Check if current path matches the link, optionally ignoring hashes
+    const isActive = pathname === path || (path.includes('#') && pathname === path.split('#')[0]);
+    return `hover:text-indigo-400 transition-colors duration-200 text-sm ${isActive ? 'text-indigo-400 underline decoration-indigo-400 underline-offset-4' : ''}`;
+  };
 
   // Animation variants for footer sections
   const footerSectionVariants = {
@@ -27,10 +36,16 @@ const Footer = () => {
 
         {/* Brand Info */}
         <motion.div variants={footerSectionVariants}>
-          {/* <h3 className="text-xl font-bold text-white mb-4">
-            Ceilora
-          </h3> */}
-          <img src="/favicon.png" alt="Ceilora Logo" className="h-12 w-auto mb-4" />
+          <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300 group mb-6 inline-flex">
+            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 text-white shadow-lg group-hover:shadow-indigo-500/50 transition-shadow duration-300">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+            </div>
+            <span className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400" style={{ fontFamily: 'var(--font-poppins)' }}>
+              Gyandhar
+            </span>
+          </Link>
           <p className="text-sm leading-relaxed mb-4">
             Crafting inspiring spaces that blend aesthetics with functionality. We bring your design dreams to life.
           </p>
@@ -44,19 +59,19 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
           <ul>
             <li className="mb-2">
-              <Link to="/" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Home</Link>
+              <Link href="/" className={getFooterLinkClass('/')}>Home</Link>
             </li>
             <li className="mb-2">
-              <Link to="/about-us" className="hover:text-indigo-400 transition-colors duration-200 text-sm">About Us</Link>
+              <Link href="/about-us" className={getFooterLinkClass('/about-us')}>About Us</Link>
             </li>
             <li className="mb-2">
-              <Link to="/services" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Services</Link>
+              <Link href="/services" className={getFooterLinkClass('/services')}>Services</Link>
             </li>
             <li className="mb-2">
-              <Link to="/client-gallery" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Client Gallery</Link>
+              <Link href="/client-gallery" className={getFooterLinkClass('/client-gallery')}>Client Gallery</Link>
             </li>
             <li className="mb-2">
-              <Link to="/contact-us" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Contact Us</Link>
+              <Link href="/contact-us" className={getFooterLinkClass('/contact-us')}>Contact Us</Link>
             </li>
           </ul>
         </motion.div>
@@ -66,18 +81,17 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-white mb-4">Our Services</h3>
           <ul>
             <li className="mb-2">
-              <Link to="/services#residential" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Residential Design</Link>
+              <Link href="/services#residential" className={getFooterLinkClass('/services#residential')}>Residential Design</Link>
             </li>
             <li className="mb-2">
-              <Link to="/services#commercial" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Commercial Design</Link>
+              <Link href="/services#commercial" className={getFooterLinkClass('/services#commercial')}>Commercial Design</Link>
             </li>
             <li className="mb-2">
-              <Link to="/services#renovation" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Renovation & Remodeling</Link>
+              <Link href="/services#renovation" className={getFooterLinkClass('/services#renovation')}>Renovation & Remodeling</Link>
             </li>
             <li className="mb-2">
-              <Link to="/services#staging" className="hover:text-indigo-400 transition-colors duration-200 text-sm">Home Staging</Link>
+              <Link href="/services#staging" className={getFooterLinkClass('/services#staging')}>Home Staging</Link>
             </li>
-            {/* Add more specific services if needed */}
           </ul>
         </motion.div>
 
@@ -88,25 +102,24 @@ const Footer = () => {
             <i className="fas fa-phone mr-2"></i> +91 93581 74038
           </p>
           <p className="mb-2 text-sm">
-            <i className="fas fa-envelope mr-2"></i> info@ceilorainterior.com
+            <i className="fas fa-envelope mr-2"></i> info@gyandharinterior.com
           </p>
           <p className="mb-4 text-sm">
             <i className="fas fa-map-marker-alt mr-2"></i> A29 Sector Pi 1, Greater Noida, Uttar Pradesh, India
           </p>
           <div className="flex space-x-4">
-            <a href="https://facebook.com/yourdesignstudio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="https://facebook.com/yourdesignInterio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
               <i className="fab fa-facebook-f text-xl"></i>
             </a>
-            <a href="https://instagram.com/yourdesignstudio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="https://instagram.com/yourdesignInterio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
               <i className="fab fa-instagram text-xl"></i>
             </a>
-            <a href="https://pinterest.com/yourdesignstudio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="https://pinterest.com/yourdesignInterio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
               <i className="fab fa-pinterest-p text-xl"></i>
             </a>
-            <a href="https://linkedin.com/company/yourdesignstudio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
+            <a href="https://linkedin.com/company/yourdesignInterio" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-200">
               <i className="fab fa-linkedin-in text-xl"></i>
             </a>
-            {/* Add more social media icons as needed */}
           </div>
         </motion.div>
       </div>

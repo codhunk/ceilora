@@ -1,6 +1,7 @@
-// src/components/CallToAction.js
+"use client";
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 const CallToAction = ({ text, link, primary = true }) => {
@@ -12,10 +13,10 @@ const CallToAction = ({ text, link, primary = true }) => {
     <motion.div
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      className="inline-block" // Ensures motion.div wraps only the button
+      className="inline-block"
     >
       <Link
-        to={link}
+        href={link}
         className={`p-4 rounded-full font-semibold shadow-lg transition-all duration-300 ${buttonClasses}`}
       >
         {text}

@@ -1,91 +1,86 @@
-// src/components/Navbar.js
-import React, { useState } from 'react'; // Make sure useState is imported
+"use client";
+
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Link, NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+
+  const getLinkClass = (path) => {
+    const isActive = pathname === path;
+    return `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`;
+  };
+
+  const getUnderlineClass = (path) => {
+    const isActive = pathname === path;
+    return `absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left transition-transform duration-300 ${isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'}`;
+  };
 
   return (
     <motion.nav
-      initial={{ y: -150, opacity: 0 }} // More pronounced initial state
-      animate={{ y: 0, opacity: 1 }}    // Animate to full visibility
-      transition={{ type: "spring", stiffness: 90, damping: 12, delay: 0.1 }} // Adjusted for a smoother, slightly slower entry
-      className="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-lg py-5 px-8 md:py-6 md:px-16" // Increased padding for more height
+      initial={{ y: -150, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ type: "spring", stiffness: 90, damping: 12, delay: 0.1 }}
+      className="fixed w-full z-50 bg-white/90 backdrop-blur-sm shadow-lg py-5 px-8 md:py-6 md:px-16"
     >
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/" className="text-3xl font-bold text-gray-800 hover:text-indigo-600 transition-colors duration-300">
-          Ceilora
+        <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300 group">
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-lg group-hover:shadow-indigo-500/50 transition-shadow duration-300">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+          </div>
+          <span className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-purple-600 to-indigo-700" style={{fontFamily: 'var(--font-poppins)'}}>
+            Gyandhar
+          </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex space-x-10"> {/* Increased space-x for wider links */}
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`
-            }
-          >
+        <div className="hidden md:flex space-x-10">
+          <Link href="/" className={getLinkClass('/')}>
             Home
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              className={getUnderlineClass('/')}
               aria-hidden="true"
             ></motion.span>
-          </NavLink>
-          <NavLink
-            to="/about-us"
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`
-            }
-          >
+          </Link>
+          <Link href="/about-us" className={getLinkClass('/about-us')}>
             About Us
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              className={getUnderlineClass('/about-us')}
               aria-hidden="true"
             ></motion.span>
-          </NavLink>
-          <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`
-            }
-          >
+          </Link>
+          <Link href="/services" className={getLinkClass('/services')}>
             Services
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              className={getUnderlineClass('/services')}
               aria-hidden="true"
             ></motion.span>
-          </NavLink>
-          <NavLink
-            to="/client-gallery"
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`
-            }
-          >
+          </Link>
+          <Link href="/client-gallery" className={getLinkClass('/client-gallery')}>
             Client Gallery
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              className={getUnderlineClass('/client-gallery')}
               aria-hidden="true"
             ></motion.span>
-          </NavLink>
-          <NavLink
-            to="/contact-us"
-            className={({ isActive }) =>
-              `text-lg font-medium ${isActive ? 'text-indigo-600' : 'text-gray-700'} hover:text-indigo-600 transition-colors duration-300 relative group`
-            }
-          >
+          </Link>
+          <Link href="/contact-us" className={getLinkClass('/contact-us')}>
             Contact Us
             <motion.span
-              className="absolute bottom-0 left-0 w-full h-0.5 bg-indigo-600 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300"
+              className={getUnderlineClass('/contact-us')}
               aria-hidden="true"
             ></motion.span>
-          </NavLink>
+          </Link>
         </div>
 
         {/* Mobile Hamburger Icon */}
         <div className="md:hidden">
           <button onClick={() => setIsOpen(!isOpen)} className="text-gray-700 focus:outline-none">
-            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"> {/* Increased size */}
+            <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               {isOpen ? (
                 <motion.path
                   initial={{ rotate: 0 }}
@@ -109,17 +104,17 @@ const Navbar = () => {
         initial={false}
         animate={isOpen ? "open" : "closed"}
         variants={{
-          open: { opacity: 1, height: "auto", transition: { ease: "easeOut", duration: 0.4 } }, // Smoother opening animation
-          closed: { opacity: 0, height: 0, transition: { ease: "easeIn", duration: 0.3 } } // Smoother closing animation
+          open: { opacity: 1, height: "auto", transition: { ease: "easeOut", duration: 0.4 } },
+          closed: { opacity: 0, height: 0, transition: { ease: "easeIn", duration: 0.3 } }
         }}
         className="md:hidden mt-4 overflow-hidden"
       >
         <div className="flex flex-col space-y-3 pb-2">
-          <NavLink to="/" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Home</NavLink>
-          <NavLink to="/about-us" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>About Us</NavLink>
-          <NavLink to="/services" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Services</NavLink>
-          <NavLink to="/client-gallery" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Client Gallery</NavLink>
-          <NavLink to="/contact-us" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Contact Us</NavLink>
+          <Link href="/" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link href="/about-us" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link href="/services" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link href="/client-gallery" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Client Gallery</Link>
+          <Link href="/contact-us" className="block text-gray-700 hover:text-indigo-600 px-4 py-2" onClick={() => setIsOpen(false)}>Contact Us</Link>
         </div>
       </motion.div>
     </motion.nav>
