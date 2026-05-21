@@ -183,7 +183,7 @@ const ServicesPage = () => {
     );
 
     return (
-        <div className="pt-24 pb-12 bg-gray-100 min-h-screen font-sans">
+        <div className="pt-24 pb-12 mt-12 bg-gray-100 min-h-screen font-sans">
             <div className="container mx-auto px-6 max-w-7xl">
                 {/* Hero Section */}
                 <motion.div

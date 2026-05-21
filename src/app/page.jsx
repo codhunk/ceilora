@@ -195,7 +195,7 @@ const HomePage = () => {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="text-center"
             >
-              <h3 className="text-3xl md:text-5xl font-bold text-indigo-600 mb-2">{stat.value}</h3>
+              <h3 className="text-3xl md:text-4xl font-bold text-indigo-600 mb-2">{stat.value}</h3>
               <p className="text-sm md:text-base font-semibold text-gray-500">{stat.label}</p>
             </motion.div>
           ))}

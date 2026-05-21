@@ -101,7 +101,7 @@ const ClientGalleryPage = () => {
   };
 
   return (
-    <div className="pt-24 pb-12 bg-gray-50">
+    <div className="pt-24 pb-12 bg-gray-50 mt-12">
       <div className="container mx-auto px-6">
         <motion.h1
           className="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-6 font-poppins"

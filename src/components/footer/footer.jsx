@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-
+import Image from 'next/image';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const pathname = usePathname();
@@ -37,14 +37,15 @@ const Footer = () => {
         {/* Brand Info */}
         <motion.div variants={footerSectionVariants}>
           <Link href="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300 group mb-6 inline-flex">
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 text-white shadow-lg group-hover:shadow-indigo-500/50 transition-shadow duration-300">
+            {/* <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-purple-500 text-white shadow-lg group-hover:shadow-indigo-500/50 transition-shadow duration-300">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
             </div>
             <span className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 via-purple-400 to-indigo-400" style={{ fontFamily: 'var(--font-poppins)' }}>
               Gyandhar
-            </span>
+            </span> */}
+            <Image src="/logo-tr.png" alt="Ceilora" className='rounded-xl' width={200} height={200} />
           </Link>
           <p className="text-sm leading-relaxed mb-4">
             Crafting inspiring spaces that blend aesthetics with functionality. We bring your design dreams to life.
