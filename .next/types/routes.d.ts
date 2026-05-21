@@ -3,19 +3,28 @@
 
 type AppRoutes = never
 type PageRoutes = never
-type LayoutRoutes = never
-type RedirectRoutes = never
+type LayoutRoutes = "/"
+type RedirectRoutes = "/aboutus" | "/client-galrey" | "/clientgallery" | "/clientgallery/[projectId]" | "/clientgalrey" | "/clientgalrey/[projectId]" | "/contactus"
 type RewriteRoutes = never
 type Routes = AppRoutes | PageRoutes | LayoutRoutes | RedirectRoutes | RewriteRoutes
 
 
 interface ParamMap {
+  "/": {}
+  "/aboutus": {}
+  "/client-galrey": {}
+  "/clientgallery": {}
+  "/clientgallery/[projectId]": { "projectId": string; }
+  "/clientgalrey": {}
+  "/clientgalrey/[projectId]": { "projectId": string; }
+  "/contactus": {}
 }
 
 
 export type ParamsOf<Route extends Routes> = ParamMap[Route]
 
 interface LayoutSlotMap {
+  "/": never
 }
 
 

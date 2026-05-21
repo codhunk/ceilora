@@ -1,1 +1,148 @@
-{"version":3,"caseSensitive":false,"basePath":"","rewrites":{"beforeFiles":[],"afterFiles":[],"fallback":[]},"redirects":[{"source":"/:path+/","destination":"/:path+","permanent":true,"internal":true,"regex":"^(?:\\/((?:[^\\/]+?)(?:\\/(?:[^\\/]+?))*))\\/$"},{"source":"/aboutus","destination":"/about-us","permanent":true,"regex":"^(?!\\/_next)\\/aboutus(?:\\/)?$"},{"source":"/contactus","destination":"/contact-us","permanent":true,"regex":"^(?!\\/_next)\\/contactus(?:\\/)?$"},{"source":"/clientgallery","destination":"/client-gallery","permanent":true,"regex":"^(?!\\/_next)\\/clientgallery(?:\\/)?$"},{"source":"/clientgalrey","destination":"/client-gallery","permanent":true,"regex":"^(?!\\/_next)\\/clientgalrey(?:\\/)?$"},{"source":"/client-galrey","destination":"/client-gallery","permanent":true,"regex":"^(?!\\/_next)\\/client-galrey(?:\\/)?$"},{"source":"/clientgallery/:projectId","destination":"/client-gallery/:projectId","permanent":true,"regex":"^(?!\\/_next)\\/clientgallery(?:\\/([^\\/]+?))(?:\\/)?$"},{"source":"/clientgalrey/:projectId","destination":"/client-gallery/:projectId","permanent":true,"regex":"^(?!\\/_next)\\/clientgalrey(?:\\/([^\\/]+?))(?:\\/)?$"}],"headers":[]}
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    },
+    {
+      "source": "/aboutus",
+      "destination": "/about-us",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/aboutus(?:/)?$"
+    },
+    {
+      "source": "/contactus",
+      "destination": "/contact-us",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/contactus(?:/)?$"
+    },
+    {
+      "source": "/clientgallery",
+      "destination": "/client-gallery",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/clientgallery(?:/)?$"
+    },
+    {
+      "source": "/clientgalrey",
+      "destination": "/client-gallery",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/clientgalrey(?:/)?$"
+    },
+    {
+      "source": "/client-galrey",
+      "destination": "/client-gallery",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/client-galrey(?:/)?$"
+    },
+    {
+      "source": "/clientgallery/:projectId",
+      "destination": "/client-gallery/:projectId",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/clientgallery(?:/([^/]+?))(?:/)?$"
+    },
+    {
+      "source": "/clientgalrey/:projectId",
+      "destination": "/client-gallery/:projectId",
+      "statusCode": 308,
+      "regex": "^(?!/_next)/clientgalrey(?:/([^/]+?))(?:/)?$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/client-gallery/[projectId]",
+      "regex": "^/client\\-gallery/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPprojectId": "nxtPprojectId"
+      },
+      "namedRegex": "^/client\\-gallery/(?<nxtPprojectId>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/portfolio/[id]",
+      "regex": "^/portfolio/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/portfolio/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/about-us",
+      "regex": "^/about\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/about\\-us(?:/)?$"
+    },
+    {
+      "page": "/client-gallery",
+      "regex": "^/client\\-gallery(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/client\\-gallery(?:/)?$"
+    },
+    {
+      "page": "/contact-us",
+      "regex": "^/contact\\-us(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/contact\\-us(?:/)?$"
+    },
+    {
+      "page": "/portfolio",
+      "regex": "^/portfolio(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/portfolio(?:/)?$"
+    },
+    {
+      "page": "/send-message",
+      "regex": "^/send\\-message(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/send\\-message(?:/)?$"
+    },
+    {
+      "page": "/services",
+      "regex": "^/services(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/services(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}
