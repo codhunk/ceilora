@@ -36,7 +36,7 @@ const Navbar = () => {
           <span className="text-3xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-indigo-700 via-purple-600 to-indigo-700" style={{fontFamily: 'var(--font-poppins)'}}>
             Gyandhar
           </span> */}
-          <Image src="/logo.png" alt="Ceilora" className='hidden md:block rounded-xl' width={200} height={50} priority />
+          <Image src="/logo-tr.png" alt="Ceilora" className='hidden md:block rounded-xl' width={200} height={50} priority />
           <div className="md:hidden flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 text-white shadow-lg font-poppins text-3xl">
             G
           </div>

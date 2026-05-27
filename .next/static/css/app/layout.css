@@ -983,9 +983,6 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-12 {
-  height: 3rem;
-}
 .min-h-\[700px\] {
   min-height: 700px;
 }
@@ -1045,12 +1042,6 @@ video {
 }
 .w-full {
   width: 100%;
-}
-.w-auto {
-  width: auto;
-}
-.w-12 {
-  width: 3rem;
 }
 .max-w-2xl {
   max-width: 42rem;
@@ -2149,6 +2140,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem;
   }
 
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   .md\:px-16 {
     padding-left: 4rem;
     padding-right: 4rem;
@@ -2159,19 +2155,9 @@ h1, h2, h3, h4, h5, h6 {
     padding-right: 2rem;
   }
 
-  .md\:py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
   .md\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
-  }
-
-  .md\:px-0 {
-    padding-left: 0px;
-    padding-right: 0px;
   }
 
   .md\:pl-8 {
